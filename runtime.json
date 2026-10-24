@@ -1,0 +1,20 @@
+{
+  "cpu_threads": 6,
+  "batch_threads": 6,
+  "context_size": 8192,
+  "batch_size": 2048,
+  "ubatch_size": 2048,
+  "gpu_layers": 99,
+  "flash_attention": false,
+  "cache_type_k": "f16",
+  "cache_type_v": "f16",
+  "mmap": true,
+  "no_context_shift": true,
+  "keep": 0,
+  "temperature": 0.2,
+  "top_k": 20,
+  "top_p": 0.9,
+  "repeat_penalty": 1.05,
+  "MAIN_LLM_PORT": 8080,
+  "DECISION_LLM_PORT": 8081
+}
