@@ -29,7 +29,7 @@ HOST="0.0.0.0"
 echo "===================================================="
 echo "Starting AxoLabs Main LLM Server (Linux Desktop)"
 echo "===================================================="
-echo "Engine Path:  $CORE_DIR/bin/llama-server"
+echo "Engine Path:  $CORE_DIR/llama-server"
 echo "Model Path:   $MODEL_FILE"
 echo "Port:         $PORT"
 echo "Threads:      $CPU_THREADS"
@@ -37,8 +37,8 @@ echo "Context Size: $CTX_SIZE"
 echo "===================================================="
 
 # Check if executable exists
-if [ ! -f "$CORE_DIR/bin/llama-server" ]; then
-    echo "[ERROR] llama-server executable not found in $CORE_DIR/bin/"
+if [ ! -f "$CORE_DIR/llama-server" ]; then
+    echo "[ERROR] llama-server executable not found in $CORE_DIR/"
     exit 1
 fi
 
@@ -49,8 +49,8 @@ if [ ! -f "$MODEL_FILE" ]; then
 fi
 
 # Launch the server (LD_LIBRARY_PATH points to the lib folder where .so plugins reside)
-LD_LIBRARY_PATH="$CORE_DIR/lib:$LD_LIBRARY_PATH" \
-"$CORE_DIR/bin/llama-server" \
+LD_LIBRARY_PATH="$CORE_DIR/:$LD_LIBRARY_PATH" \
+"$CORE_DIR/llama-server" \
   -m "$MODEL_FILE" \
   -c "$CTX_SIZE" \
   -b "$BATCH_SIZE" \
